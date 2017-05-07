@@ -3,12 +3,14 @@ layout: post
 title: Hiking in Japan
 # image: /img/hiking_cover.jpg
 bigimg: /img/hiking_cover.jpg
-tags: [random, exciting-stuff]
+tags: [hiking, japan]
 ---
 
 Hiking! One of my favorite activties while I was in Japan. There's just something special and unique about mountains that I can't quite explain. What's so great about hiking in Japan is that it's so accessible/easy to get around. By trains and buses alone I can get to almost any mountain around me. No cars, no plans (it's really easy to just wing it), no camping gear. Most hikes take on average 6 hours to reach the peak, so I stayed at a mountain hut most of the time, or camped out when I was lucky enough to meet nice strangers. Even then, it is totally possible to do day-hikes without having to spend money to stay at a lodge house. I usually preferred to sleep on the mountain so that I could watch the sunset and sunrise at the peaks, but also to enjoy the food prepared at the mountain hut. Finally, a hike in Japan is never complete until one visits an [onsen][onsen] to clean and recover from the long and exhausting hikes.
 
 There is a well-known list of [100 Famous Japanese Mountains][famous-mountains], and I've had the chance to climb 7 of them. Below are some of my pictures and thoughts of my favorite 4 hikes.
+
+{% lightbox i.imgur.com/f7BaIVg.jpg --thumb="i.imgur.com/f7BaIVg.jpg" --data="test" --title="Test" --alt="This is our logo" --img-style="max-width:80%;" --class="yourclass" %}
 
 ### Mt. Hōō
 
@@ -29,9 +31,11 @@ This was my first real hike in Japan, and I fell in love right away. This was al
 ### Mt. Tanzawa
 
 This was a hike that was not promising at all. Planning this in the middle of the rainy season in Japan (between June and July), is asking for trouble. My friend's supervisor suggested her to go see a museum instead, and for the first four hours of the hike I was doubting if it was a good idea to do it. At the start of the trail, it was raining, we could barely see anything because of the fog, and there were signs warning us about leeches which we should have paid more attention to. Somehow, I found a leech stuck to my stomach (I have no clue how it got there) and just stood there not knowing what to do like an idiot.
+
 <a href="//i.imgur.com/EoAEJ8G.jpg" data-lightbox="mt-tanzawa" data-title="The foggy trail.">
   <img src="//i.imgur.com/EoAEJ8G.jpg" title="The foggy trail.">
 </a>
+
 Most mountains in Japan are actually composed of multiple ones. In this case, Mt. Tanzawa is the one listed in the 100 Famous Japanese Mountain, but we covered a total of 4 peaks. After about 5 hours of hiking and almost reaching the highest peak (and most beautiful), we finally saw the clouds clearing up and Mt. Fuji appearing in the distance. When we finally made it to the mountain hut, the owner welcomed us with some curry rice, other delicious food, some music from Enya and what was probably one of the most beautiful scenes I've ever witnessed in my life.
 
 <a href="//i.imgur.com/zIqynNx.jpg" data-lightbox="mt-tanzawa" data-title="Gorgeus sunset from Mt. Hirugatake">

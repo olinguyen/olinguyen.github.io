@@ -2,8 +2,8 @@
 layout: post
 title: There He Go
 # image: /img/fuji_sunrise.jpg
-image: /img/fuji_sunrise.jpg
-tags: [random, exciting-stuff]
+bigimg: /img/fuji_sunrise.jpg
+tags: [japan]
 ---
 
 It’s with anxiety and worry that I leave my parents at the airport in Montreal. 21 years living with my parents as the only child. I think the time is right to take a step back and explore the world on my own, make my own mistakes.
