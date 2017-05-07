@@ -10,7 +10,7 @@ Hiking! One of my favorite activties while I was in Japan. There's just somethin
 
 There is a well-known list of [100 Famous Japanese Mountains][famous-mountains], and I've had the chance to climb 7 of them. Below are some of my pictures and thoughts of my favorite 4 hikes.
 
-{% lightbox i.imgur.com/f7BaIVg.jpg --thumb="i.imgur.com/f7BaIVg.jpg" --data="test" --title="Test" --alt="This is our logo" --img-style="max-width:80%;" --class="yourclass" %}
+# {% lightbox i.imgur.com/f7BaIVg.jpg --thumb="i.imgur.com/f7BaIVg.jpg" --data="test" --title="Test" --alt="This is our logo" --img-style="max-width:80% %}
 
 ### Mt. Hōō
 
