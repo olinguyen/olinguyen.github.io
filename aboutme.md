@@ -4,13 +4,13 @@ title: About me
 subtitle: Why you'd want to go on a date with me
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+Hey there! I'm Olivier. I'm currently a Master student at University of Waterloo part of the [Health and Data Science Lab](hdsl.uwaterloo.ca) and the [ECE Machine Learning Lab](https://uwaterloo.ca/scholar/mcrowley/lab).
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+My research focus is on developing methods for home health monitoring and data-driven decision making systems using the abundance of data coming from various devices today. His research interest mainly include: machine learning, deep learning, data mining, e-health, data visualization and computer vision.
 
-What else do you need?
+###  Background
 
-### my history
+Previously, I completed my Bachelor’s degree in Computer Engineering at Concordia University in Montreal.
+Before my Masters, I worked as a research intern at NTT in Japan on media event detection from online videos. I also worked on digital signal processing and embedded systems as a research assistant during his undergrad. Finally, I completed co-op internships as a software developer and participated in many extra-curricular activities in robotic competitions and electronics projects.
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+On his free time, Olivier loves to play basketball, go hiking, watch movies and listen to music.
