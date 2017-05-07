@@ -1,6 +1,7 @@
 ---
 layout: post
-title: First post!
+title: There He Go
+# image: /img/fuji_sunrise.jpg
 image: /img/fuji_sunrise.jpg
 tags: [random, exciting-stuff]
 ---

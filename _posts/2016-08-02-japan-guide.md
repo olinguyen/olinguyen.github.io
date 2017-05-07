@@ -1,7 +1,8 @@
 ---
 layout: post
-title: First post!
-image: /img/temples.jpg
+title: Japan Guide
+# image: /img/temples.jpg
+bigimg: /img/temples.jpg
 tags: [random, exciting-stuff]
 ---
 
