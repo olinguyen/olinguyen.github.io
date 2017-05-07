@@ -10,8 +10,6 @@ Hiking! One of my favorite activties while I was in Japan. There's just somethin
 
 There is a well-known list of [100 Famous Japanese Mountains][famous-mountains], and I've had the chance to climb 7 of them. Below are some of my pictures and thoughts of my favorite 4 hikes.
 
-# {% lightbox i.imgur.com/f7BaIVg.jpg --thumb="i.imgur.com/f7BaIVg.jpg" --data="test" --title="Test" --alt="This is our logo" --img-style="max-width:80% %}
-
 ### Mt. Hōō
 
 This was my first real hike in Japan, and I fell in love right away. This was also 4 months into my internship (man I was missing out), and I was told that Mt. Hōō (translated Phoenix Mountain in Japanese) was a very difficult hike with a tough trail, so I decided to get hiking boots. It ended up being a great decision, since it was one of the hardest things that I had to do physically. I met some people through Meetup, and we camped out on Saturday night to start hiking Sunday at 3 AM. It took us a long 8 hours to reach the first peak of three peaks, and two more hours to cover the other peaks. From these peaks, we had an incredible view of the southern Japanese Alps (Minami Alps) and Mt. Fuji. In the end, we spent around 15 hours hiking and headed home exhausted to visit an onsen, rest and get ready to work the next day.
