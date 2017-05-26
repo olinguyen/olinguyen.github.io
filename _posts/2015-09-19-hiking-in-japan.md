@@ -89,7 +89,7 @@ Yatsugatake was one of the funnest hikest. The trail itself has a lot of cool cl
 <a href="//i.imgur.com/nu7ICLd.jpg" data-lightbox="mt-yatsu" data-title="Cliff on the way down">
 </a>
 
-[onsen]:       https://en.ikipedia.org/wiki/Onsen
+[onsen]:       https://en.wikipedia.org/wiki/Onsen
 [jekyll]:      http://jekyllrb.com
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-help]: https://github.com/jekyll/jekyll-help

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Japan Guide
+title: Japan Travel Guide
 # image: /img/temples.jpg
 bigimg: /img/temples.jpg
 tags: [japan, guides]
