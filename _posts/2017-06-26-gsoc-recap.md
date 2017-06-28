@@ -5,7 +5,7 @@ title: Google Summer of Code - Month 1 Recap
 tags: [gsoc, data-science, machine-learning]
 ---
 
-Over the past few weeks,  
+Over the past few weeks, I worked on a data project for patient monitoring and decision support using health data. I've summarized most of my work in the following blog post. While this current post will describe the approach I've taken for the problem, my weekly blog posts are more detailed and follow a more story-like structure. All the code and notebooks can be found in the following [link](https://github.com/olinguyen/gsoc2017-shogun-dataproject).
 
 ## Introduction
 
@@ -146,6 +146,7 @@ For mortality prediction, we mainly used two machine learning classifiers: logis
 | Random guess         |          0.50           |          0.50   | 0.50             |      0.50    |
 | Logistic Regression (sklearn)         |                     |             | 84.64              |          |
 | Linear SVM (sklearn)         |                     |             | 84.56              |          |
+| XGBoost         |                     |             | 87.60              |          |
 
 
 
@@ -164,6 +165,12 @@ For mortality prediction, we mainly used two machine learning classifiers: logis
 
 ### Comparisons with other frameworks
 
+The training time for logistic regression and linear SVM were compared between sklearn and shogun.
 
+| Classifier | Mean train time across 10 folds (seconds)  |
+|--|
+|                     | shogun | sklearn |
+| Linear SVM          | 4.516       |   12.05 |
+| Logistic Regression | 6.265       |   0.7488  |
 
 ## Next Up
