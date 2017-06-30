@@ -5,7 +5,7 @@ title: Google Summer of Code - Month 1 Recap
 tags: [gsoc, data-science, machine-learning]
 ---
 
-Over the past few weeks, I worked on a data project for patient monitoring and decision support using health data. I've summarized most of my work in the following blog post. While this current post will describe the approach I've taken for the problem, my weekly blog posts are more detailed and follow a more story-like structure. All the code and notebooks can be found in the following [link](https://github.com/olinguyen/gsoc2017-shogun-dataproject).
+Over the past few weeks, I worked on a data project for patient monitoring and decision support using health data. I've summarized most of my work in the following blog post. While this current post will describe the approaches that I've taken for the problem, my weekly blog posts are more detailed and read more as story. All the code and notebooks can be found in the following [link](https://github.com/olinguyen/gsoc2017-shogun-dataproject).
 
 ## Introduction
 
@@ -21,15 +21,15 @@ Using the MIMIC database, I focused on these 2 prediction tasks:
 1. Mortality prediction
 2. Hospital length of stay  
 
-More specifically, I'm interested in accomplishing the following:
+More specifically, I accomplished the following:
 
-1. Extract predictor variables from the MIMIC database
-2. Build machine learning models for the predictions tasks
-3. Improve performance results using hyper-parameter tuning, or ensemble methods for tree classifiers
+1. Extracted predictor variables from the MIMIC database
+2. Built machine learning models for the predictions tasks
+3. Evaluated and compared the performance of various algorithms
 
 ## Overview of MIMIC
 
-The MIMIC database mainly includes demographic, administrative, clinical data and much more from thousands of critical care patients. The table below provides basic descriptive statistics of the patients.
+The MIMIC database mainly includes demographic, administrative, clinical data and much more from thousands of critical care patients. The table and the plot below provides basic descriptive statistics of the patients and an overview of the dataset.
 
 | Information                    | Totals |
 |--------------------------------|-------------|
@@ -47,7 +47,7 @@ The MIMIC database mainly includes demographic, administrative, clinical data an
 
 ### Features/Predictors
 
-Predictors from three main categories were extracted: demographic information, vital sign data and laboratory measurements.
+Predictors from three main categories were extracted: demographic information, vital sign data and laboratory measurements. These were selected as the most relevant information in determining the likelihood of mortality and hospital length of stay.
 
 | Demographic & Clinical Info             | Description |
 |-------------------------|---------------------------------------------|
@@ -57,6 +57,8 @@ Predictors from three main categories were extracted: demographic information, v
 | ICU length of stay      | Number of days spent in the ICU             |
 | First care unit         | ICU type in which the patient was cared for |
 | Admission type          | Admission type the patient entered          |
+
+Vital signs are clinical measurements that describe the state of a patient's body functions.
 
 | Vital sign               | Description |
 |--------------------------|-------------|
@@ -70,6 +72,8 @@ Predictors from three main categories were extracted: demographic information, v
 | Glasgow Coma Scale       | Scoring system used to describe the level of consciousness in a person            |
 | Ventilation              | Whether the patient was ventilated or not            |
 | Urine output             | How much urine was produced            |
+
+Laboratory measurements are made by acquiring a fluid from the patient's body (e.g. blood from an arterial line or urine from a [catheter](https://en.wikipedia.org/wiki/Catheter)) and then analyzing it in the laboratory.
 
 | Laboratory measurements |
 |-------------------------|
@@ -88,11 +92,19 @@ Predictors from three main categories were extracted: demographic information, v
 
 ### Visualization
 
-To get a better grasp of the effects of the predictors on the mortality outcomes, we explored the following visualizations.
+To get a better grasp of the effects of the predictors on the mortality outcomes, I explored the dataset with multiple visualizations.
+
+I used a 3d plot to see how different features affect a patient's mortality probability.
+
+In this first visualization, I included age, heart rate and the [Glasgow Coma Scale](https://en.wikipedia.org/wiki/Glasgow_Coma_Scale) which is a score indicating the level of consciousness of a person. From the plot, patients with somewhat extreme values (low heart rate and Glasgow Coma Scale values) are more likely to die, shown with a red 'X'. Although this plot only shows 3 predictors, it is possible to change the variables on the 3 axis for visualizations.
 
 ![](/img/week3/3dplot.png "3D plot")
 
+Laboratory measurements taken from a patient are also strong indictators of a patient's health condition. Let's take anion gap as an example. [Anion gap](https://en.wikipedia.org/wiki/Anion_gap) is the difference between primary measured cations (sodium Na+ and potassium K+) and the primary measured anions (chloride Cl- and bicarbonate HCO3-) in [serum](https://en.wikipedia.org/wiki/Serum_(blood)) (blood). The test is mostly performed in patients with altered mental status, unknown exposures, acute renal failure, and acute illnesses [1]. A kernel density estimation plot is used to view the distribution of the values below shows the aniongap measurement on ICU admission comparison for survival and non-survival groups.
+
 ![](/img/week3/aniongap-density.png "Anion Gap Density")
+
+In total, 48 features are used to build the model for both prediction tasks. To visualize high-dimensional data, I employed PCA and t-SNE as dimensionality reduction techniques.
 
 ![](/img/week4/pca-2d.png "PCA 2D Plot")
 
@@ -102,7 +114,7 @@ To get a better grasp of the effects of the predictors on the mortality outcomes
 
 ### Exclusions
 
-Because MIMIC is an ICU database, the focus will be on patients admitted to and discharged from the ICU. Patients admitted to the ICU generally suffer from severe and life-threatening illnesses and injuries which require constant, close monitoring and support. Being able to make good decisions during this time period is therefore crucial. For that reason, I selected and grouped the data points based off the ICU stay rather than the individual patient to develop a model specifically for ICU patient monitoring and decision-making.
+Because MIMIC is an ICU database, the focus was placed on patients admitted to and discharged from the ICU. Patients admitted to the ICU generally suffer from severe and life-threatening illnesses and injuries which require constant, close monitoring and support. Being able to make good decisions during this time period is therefore crucial. For that reason, data points were queried and grouped based off the ICU stay rather than the individual patient to develop a model specifically for ICU patient monitoring and decision-making.
 
 The selection criteria is described below along with a short explanation. The following points were excluded from the dataset:
 
@@ -112,60 +124,55 @@ The selection criteria is described below along with a short explanation. The fo
     * Simplifies analysis which assumes independent observations
     * We avoid taking into account that ICU stays are highly correlated
 * Length of stay less than 2 days
-    * Helps remove false positives that we're placed in ICU for precautionary purposes
-* Exclude patients based on hospital services
-    * Makes a more homogenous group of patients since we remove patients undergoing surgery
-
-From a total of 61,534 unique ICU stay observations, the summary of the exclusions is as follows:
-
-| Exclusion      | # ICU stays    |
-|----------------|----------------|
-| Length of stay | 29211 (47.47%) |
-| Age            | 8109 (13.18%)  |
-| First stay     | 15058 (24.47%) |
-| Surgical       | 18225 (29.52%) |
-| Total          | 48929 (79.52%) |
-
-After the exclusions, up to 48929 observations (almost 80% of samples), which is quite significant. The remaining data consists of a little over 20,000 patients that are kept for data analysis.
+    * Helps remove false positives that were placed in ICU for precautionary purposes
 
 ### Data cleaning
 
-This introduced the issues of much more NaN values being present in the data because not all lab measurements are recorded for every patient. To circumvent this, we will make use of the `pandas` library to deal with missing data. More specifically, the data imputation technique, or the method of replacement of the missing data, will employ mean substitution which will replace missing values with the mean value of that feature. Doing so allows us to increase our dataset size by 3,000, with a total of over 32,000 data points. Additionally, we shall add [data normalization](https://en.wikipedia.org/wiki/Feature_scaling ) to preprocess the data. Because our data has very different features that have different metrics, units and scales, we will standardize the data by making each feature have zero mean by subtracting the mean, and have unit-variance. Feature scaling ensures that all the data is normalized, that the features are in the same range. Some algorithms like the [SVM](https://en.wikipedia.org/wiki/Support_vector_machine) can converge faster on normalized data.
+Because not all lab measurements are recorded for every patient, a lot missing values and NaNs were found in the dataset which were replaced with the mean value.
+
+ Additionally, data standardization was applied to make each feature have zero mean by subtracting the mean, and have unit-variance to ensure that all the data is normalized, that the features are in the same range.
 
 ## Model & Training
 
-For mortality prediction, we mainly used two machine learning classifiers: logistic regression and linear support vector machine. These algorithms are commonly used and allow learn the relationship between predictor variables and a binary outcome variable.
+For mortality prediction, two machine learning classifiers were used: logistic regression and linear support vector machine. These algorithms are commonly used and allow learn the relationship between predictor variables and a binary outcome variable.
 
 ## Results
 
-| Classifier          | Mean AUC across 10 folds (%) |                  |                    |               |
-|---------------------|--------------------------|------------------|--------------------|---------------|
-|                     | 1-year mortality         | 30-day mortality | Hospital mortality | ICU mortality |
-| Logistic Regression | 78.61                    | 82.05            | 84.64              | 85.35         |
-| Linear SVM          | 78.57                    | 82.17            | 84.56              | 85.18         |
-| Random guess         |          0.50           |          0.50   | 0.50             |      0.50    |
-| Logistic Regression (sklearn)         |                     |             | 84.64              |          |
-| Linear SVM (sklearn)         |                     |             | 84.56              |          |
-| XGBoost         |                     |             | 87.60              |          |
+Using [stratified 10-fold cross-validation]([1]), the [auROC](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) was the metric used to evaluate the perforance of the classifiers for mortality prediction and recorded in the table below. The scores were also compared with sklearn's implementation of logistic regression and linear SVM and yielded identical results. Finally, I compared the result with [XGBoost](xgboost.readthedocs.io), which is a popular algorithm used in Kaggle competitions.
 
+| Classifier          | Mean AUC across 10 folds (%) |
+|---------------------|--------------------|
+|                     | Hospital mortality |
+| Logistic Regression | 84.64              |
+| Linear SVM          | 84.56              |
+| Random guess         |          0.50           |        
+| Logistic Regression (sklearn)         |  84.64              |
+| Linear SVM (sklearn)         |    84.56              |    
+| XGBoost             | 87.60              |  
 
-
-
-| Classifier              | Mean MSE across 10 folds |                    |
-|-------------------------|--------------------------|--------------------|
-|                         | Hospital length of stay  | ICU length of stay |
-| Least square regression | 110.726                  | 34.878             |
-| Linear ridge regression | 110.726                  | 34.878
+In addition to mortality prediction, 30-day, 1-year and ICU mortality prediction were evaluated.
 
 ![](/img/week3/mp-results.png "Mortality prediction results")
 
+Boxplots give an indication of the variance of the results over the 10 folds through cross-validation.
+
 ![](/img/week3/boxplot-mp.png "Boxplot mortality prediction")
+
+ The [ROC curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) for hospital mortality gives an insight on the sensitivity and specificity of our logistic regression and linear SVM models. The performance of both models were quite similar.
 
 ![](/img/week3/roc-curve.png "ROC Curve")
 
+Finally, the regression task for predicting hospital length of stay was evaluate using mean squared error.
+
+| Classifier              | Mean MSE across 10 folds |                  
+|-------------------------|--------------------------|
+|                         | Hospital length of stay  |
+| Least square regression | 110.726                  |
+| Linear ridge regression | 110.726                  |
+
 ### Comparisons with other frameworks
 
-The training time for logistic regression and linear SVM were compared between sklearn and shogun.
+The training time for logistic regression and linear SVM were compared between sklearn and shogun. While shogun has a faster training time for linear SVM when compared to sklearn, the opposite scenario occurs for logistic regression.
 
 | Classifier | Mean train time across 10 folds (seconds)  |
 |--|
@@ -173,4 +180,4 @@ The training time for logistic regression and linear SVM were compared between s
 | Linear SVM          | 4.516       |   12.05 |
 | Logistic Regression | 6.265       |   0.7488  |
 
-## Next Up
+[1]: (https://en.wikipedia.org/wiki/Cross-validation_\(statistics›)#k-fold_cross-validation)
