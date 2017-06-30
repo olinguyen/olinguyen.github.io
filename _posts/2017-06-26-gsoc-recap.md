@@ -134,11 +134,11 @@ Because not all lab measurements are recorded for every patient, a lot missing v
 
 ## Model & Training
 
-For mortality prediction, two machine learning classifiers were used: logistic regression and linear support vector machine. These algorithms are commonly used and allow learn the relationship between predictor variables and a binary outcome variable.
+For mortality prediction, two machine learning classifiers were used: logistic regression and linear support vector machine. These algorithms are commonly used and allow to learn the relationship between predictor variables and a binary outcome variable.
 
 ## Results
 
-Using [stratified 10-fold cross-validation]([1]), the [auROC](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) was the metric used to evaluate the perforance of the classifiers for mortality prediction and recorded in the table below. The scores were also compared with sklearn's implementation of logistic regression and linear SVM and yielded identical results. Finally, I compared the result with [XGBoost](xgboost.readthedocs.io), which is a popular algorithm used in Kaggle competitions.
+Using [stratified 10-fold cross-validation]([1]), the [auROC](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) was the metric used to evaluate the performance of the classifiers for mortality prediction and recorded in the table below. The scores were also compared with sklearn's implementation of logistic regression and linear SVM and yielded identical results. Finally, I compared the result with [XGBoost](xgboost.readthedocs.io), which is a popular algorithm used in Kaggle competitions.
 
 | Classifier          | Mean AUC across 10 folds (%) |
 |---------------------|--------------------|
@@ -150,7 +150,7 @@ Using [stratified 10-fold cross-validation]([1]), the [auROC](https://en.wikiped
 | Linear SVM (sklearn)         |    84.56              |    
 | XGBoost             | 87.60              |  
 
-In addition to mortality prediction, 30-day, 1-year and ICU mortality prediction were evaluated.
+In addition to mortality prediction, 30-day, 1-year and ICU mortality prediction were evaluated. The barcharts below show the results for the different tasks.
 
 ![](/img/week3/mp-results.png "Mortality prediction results")
 
@@ -169,8 +169,6 @@ Finally, the regression task for predicting hospital length of stay was evaluate
 |                         | Hospital length of stay  |
 | Least square regression | 110.726                  |
 | Linear ridge regression | 110.726                  |
-
-### Comparisons with other frameworks
 
 The training time for logistic regression and linear SVM were compared between sklearn and shogun. While shogun has a faster training time for linear SVM when compared to sklearn, the opposite scenario occurs for logistic regression.
 
