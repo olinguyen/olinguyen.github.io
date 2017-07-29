@@ -145,7 +145,7 @@ Using [stratified 10-fold cross-validation]([1]), the [auROC](https://en.wikiped
 |                     | Hospital mortality |
 | Logistic Regression | 84.64              |
 | Linear SVM          | 84.56              |
-| Random guess         |          0.50           |        
+| Random guess         |          50.00           |        
 | Logistic Regression (sklearn)         |  84.64              |
 | Linear SVM (sklearn)         |    84.56              |    
 | XGBoost             | 87.60              |  
