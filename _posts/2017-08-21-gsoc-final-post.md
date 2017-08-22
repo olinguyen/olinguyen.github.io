@@ -194,21 +194,30 @@ Finally, the regression task for predicting hospital length of stay was evaluate
 
 ------
 
-## 5. Improved model with temporal and lagged features
+## 5. Improved model with temporal features
 
-The previous basic model above that was built for mortality prediction was based on a single time-shot features i.e. vital signs of the first 24 hours were aggregated and had descriptive statistics computed.
+The previous basic model above that was built for mortality prediction was based on a single time-shot features i.e. vital signs of the first 24 hours were aggregated and had descriptive statistics computed. As a result, the basic model fails to account any temporal structure in the data and will not capture a changing health status of a patient.
 
 Let's recall that the objective was to develop a model that could allow caregivers to monitor and predict mortality of patients. In practice, such a system would be incorporated in a real-time clinical monitoring system where it would be possible to look at a patient at any point in time and make a prediction about whether the patient will die within a certain amount of time. 
 
-In addition to the prediction task, I wanted to model and understand how a dying patient differs from a patient with normal behavior moments before days, hours and right before death.
+In this improved model, I exploit the temporal information, taking into account the fluctuations of the vital signs over time and most importantly does not look at how the vital signs change moments before death. From there, it allowed me to better understand how a dying patient differs from a patient with normal behavior moments before days, hours and right before death.
 
-In this improved model, I exploit the temporal information, taking into account the fluctuations of the vital signs over time and most importantly does not look at how the vital signs change moments before death.
+### 5.1 Resampling
 
-### 5.1  Resampling
+One of the challenges with the MIMIC database is that vital signs are measured and recorded at irregular time intervals. Resampling refers to converting raw time series data into discrete intervals at a fixed frequency. A smaller time resolution between vital sign readings, the better and more accurate the classifier becomes since it allows for timely predictions. 
 
-Resampling refers to converting raw time series data into discrete intervals.
+Because space and computing power is limited, a sampling rate measuring capturing vital signs every hour was chosen, for the first 24 hours of a patient. Afterwards, lagged features from the last 3 hourly observations (t-1, t-2, t-3), which are the vital signs at the previous hours, were computed by shifting columns of the time stamp. 
 
-The vital signs were downsampled to every hour, for the first 24 hours. Afterwards, lagged features from the last 3 observations (t-1, t-2, t-3), which are the vital signs at the previous hours, were computed by shifting columns of the time stamp. A rolling window then computes the mean, min, max and median over the entire vital signs time series of a patient in the last 6 hours.  The same vital signs used previously were included for this model. Below is a sample of data points with only heart rate used.
+| timestamp           | heartrate-raw | hr_1h | hr_max_6h | hr_mean_6h | hr_median_6h | hr_min_6h |
+|---------------------|---------------|-------|-----------|------------|--------------|-----------|
+| 2100-06-09 13:00:00 | 90.0          | 74.0  | 90.0      | 79.85      | 77.0         | 74.0      |
+| 2100-06-09 14:00:00 | 81.0          | 90.0  | 90.0      | 79.28      | 77.0         | 74.0      |
+| 2100-06-09 15:00:00 | 79.0          | 81.0  | 90.0      | 79.00      | 77.0         | 74.0      |
+| 2100-06-09 16:00:00 | 79.0          | 79.0  | 90.0      | 79.42      | 79.0         | 74.0      |
+| 2100-06-09 17:00:00 | 68.0          | 79.0  | 90.0      | 78.14      | 79.0         | 68.0      |
+
+
+A rolling window then computes the mean, min, max and median over the entire vital signs time series of a patient in the last 6 hours.  The same vital signs used previously were included for this model. Below is a sample of data points with only heart rate used.
 
 To observe how these features differ between dying and surviving patients, a stacked histogram was plotted to view the distribution of these vital signs values across both groups. 
 
