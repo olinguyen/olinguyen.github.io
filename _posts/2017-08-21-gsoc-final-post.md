@@ -16,13 +16,16 @@ However, initatives like the Medical Information Mart For Intensive Care (MIMIC)
 3. [Features](#features)
 4. [Visualization](#visualization)
 5. [Preprocessing](#preprocessing)
-    5.1. [test](#preprocessing)
-6. [Exclusions](#exclusions)
-7. [Data cleaning](#data-cleaning)
-8. [Basic model](#basic-model)
-9. [Results](#results)
-10. [Improved model with temporal and lagged features
+
+    5.1. [Exclusions](#exclusions)
+
+    5.2. [Data cleaning](#data-cleaning)
+6. [Basic model](#basic-model)
+
+    6.1. [Results](#results)
+7. [Improved model with temporal and lagged features
 ](#improved-model-with-temporal-and-lagged-features)
+8. [Future improvements](#future-improvements)
 
 
 ## Objective
@@ -147,7 +150,7 @@ Because not all lab measurements are recorded for every patient, a lot missing v
 
 For mortality prediction, two machine learning classifiers were used: logistic regression and linear support vector machine. These algorithms are commonly used and allow to learn the relationship between predictor variables and a binary outcome variable.
 
-## Results
+### Results
 
 Using [stratified 10-fold cross-validation]([1]), the [auROC](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) was the metric used to evaluate the performance of the classifiers for mortality prediction and recorded in the table below. The scores were also compared with sklearn's implementation of logistic regression and linear SVM and yielded identical results. Finally, I compared the result with [XGBoost](xgboost.readthedocs.io), which is a popular algorithm used in Kaggle competitions.
 
