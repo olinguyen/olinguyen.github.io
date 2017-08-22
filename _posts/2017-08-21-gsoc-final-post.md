@@ -195,7 +195,8 @@ The training time for logistic regression and linear SVM were compared between s
 [1]: (https://en.wikipedia.org/wiki/Cross-validation_\(statistics›)#k-fold_cross-validation)
 
 ## Improved model with temporal and lagged features
-More specifically, I was interested in developing a model that could allow caregivers to monitor and predict mortality of patients. In practice, such a system would be incorporated in a real-time clinical monitoring system where it would be possible to look at a patient at any point in time and make a prediction about whether the patient will die within a certain amount of time. Using the MIMIC database which includes vital signs, medications, diagnostic code and many more variables, along with feature engineering techniques, I investigated whether I could build a robust classifier to perform such mortality prediction task.
+
+Let's recall that the objective was to develop a model that could allow caregivers to monitor and predict mortality of patients. In practice, such a system would be incorporated in a real-time clinical monitoring system where it would be possible to look at a patient at any point in time and make a prediction about whether the patient will die within a certain amount of time. Using the MIMIC database which includes vital signs, medications, diagnostic code and many more variables, along with feature engineering techniques, I investigated whether I could build a robust classifier to perform such mortality prediction task.
 
 In addition to the prediction task, I wanted to model and understand how a dying patient differs from a patient with normal behavior moments before days, hours and right before death.
 
