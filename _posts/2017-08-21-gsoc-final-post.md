@@ -206,7 +206,7 @@ Because not all lab measurements are recorded for every patient, a lot missing v
 
 ## 4. Basic model
 
-In this first model, I investigated how well predictions could be when not using time series data. I ignored the temporal structure of the data, and only used the entire data of the first 24 hours in the ICU for a patient. A single time-shot computing the minimum, maximum and mean for that time period was used for the vital signs. For mortality prediction, two machine learning classifiers were used: logistic regression and linear support vector machine. These algorithms are commonly used and allow to learn the relationship between predictor variables and a binary outcome variable.
+In this first model, I investigated how well predictions could be when not using time series data. I ignored the temporal structure of the data, and only used the entire data of the first 24 hours in the ICU for a patient. A single time-shot computing the minimum, maximum and mean for that time period was used for the vital signs. For mortality prediction, three machine learning classifiers were used: random forest, logistic regression and linear support vector machine. These algorithms are commonly used and allow to learn the relationship between predictor variables and a binary outcome variable.
 
 ### 4.1 Results
 
@@ -310,10 +310,10 @@ I first started off with a basic model using demographic information, vital sign
 
 ## Future improvements
 
-Because of the size and complexity of the MIMIC database, there are many problems that can tackled. Here are some challenging areas that were beyond the scope of this data project, but that would have been interesting to include.
+While I used lagged features and sliding window summary statistics for the time series data, there exists many other methods of modeling data of time. Recurrent neural networks have shown to be effective, especially with sequences and temporal data.
+
+Because of the size and complexity of the MIMIC database, there are many other types of problems that can tackled. Here are some challenging areas that were beyond the scope of this data project, but that would have been interesting to include.
 
 * Patient similarity
-
 * Survival analysis (time-to-event prediction)
-
 * Disease prediction
