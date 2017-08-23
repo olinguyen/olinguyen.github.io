@@ -5,12 +5,14 @@ title: Google Summer of Code - Final Blog Post
 tags: [gsoc, data-science, machine-learning]
 ---
 
+The following blog post summarizes most of my work for the [Google Summer of Code 2017](https://developers.google.com/open-source/gsoc) with the [Shogun Machine Learning Toolbox](shogun.ml). A python notebook that accompanies this blog post can be found [here](https://github.com/olinguyen/gsoc2017-shogun-dataproject/blob/master/Shogun%20Showroom.ipynb).
+
+## Introduction
+
 Everyday, the healthcare industry creates large amounts of patient and clinical data and stores them in electronic health records. Most of this data has previously been inaccessible, in part due to patient privacy concerns, which poses a challenge to researchers working on the analysis of health records.
 
 However, initatives like the Medical Information Mart For Intensive Care (MIMIC) database project have allowed for everyone to use and experiment with health data. In particular, the [MIMIC database](https://mimic.physionet.org/
 ) is a critical care database made freely available for researchers around the world to develop and evaluate intensive care unit (ICU) patient monitoring and decision support systems that will improve the efficiency, accuracy and timeliness of clinical decision-making in critical care.
-
-A python notebook that accompanies this blog post can be found [here](https://github.com/olinguyen/gsoc2017-shogun-dataproject/blob/master/Shogun%20Showroom.ipynb).
 
 ## Table of Contents
 1. [Objective](#1-objective)
@@ -24,13 +26,14 @@ A python notebook that accompanies this blog post can be found [here](https://gi
     4.1. [Results](#41-results)
 5. [Improved model with temporal features](#5-improved-model-with-temporal-features)
     5.1 [Resampling](#51-resampling)
+    5.2 [Results](#52-results)
 8. [Conclusion](#conclusion)
 9. [Future improvements](#future-improvements)
 
 
 ## 1. Objective
 
-Using the MIMIC database, I focused on these 2 prediction tasks:
+Using the MIMIC database which includes vital signs, medications, diagnostic code and many more variables, along with feature engineering techniques, I investigated whether I could build a robust classifier to perform the following tasks:
 
 1. Mortality prediction
 2. Hospital length of stay  
@@ -41,7 +44,7 @@ More specifically, I accomplished the following:
 2. Built machine learning models for the predictions tasks
 3. Evaluated and compared the performance of various algorithms
 
-Using the MIMIC database which includes vital signs, medications, diagnostic code and many more variables, along with feature engineering techniques, I investigated whether I could build a robust classifier to perform such mortality prediction task.
+I first experimented with a basic model which ignores temporal structure in the data, and attempted to perform mortality prediction. In the second improved model, I incorporated lagged features which takes into account the complexity of time series data. From there, I explored the pros and cons of each model, the challenges of using time series data and discussions on the analysis & results.
 
 ## 2. Overview of MIMIC
 
@@ -60,6 +63,8 @@ The MIMIC database mainly includes demographic, administrative, clinical data an
 | ICU mortality (%)              | 8.545       |
 
 ![](/img/week2/hist-mimic.png "Histograms for MIMIC")
+
+Additional information regarding the MIMIC database can be found in the [published paper](https://www.nature.com/articles/sdata201635) as well.
 
 ### 2.1 Features
 
@@ -89,6 +94,10 @@ Vital signs are clinical measurements that describe the state of a patient's bod
 | Ventilation              | Whether the patient was ventilated or not            |
 | Urine output             | How much urine was produced            |
 
+During a patients' stay in the ICU, their routine vital signs and additional information relevant to their care are constantly monitored and recorded electronically. This results in data taking the form of a time series where there is an ordered sequence of observations of many variables. I extracted every vital sign data point of the first 24 hours of a patient upon entering the ICU. The raw values of a few vital signs of a patient looks as follows:
+
+![](/img/week10/single-patient-vitals.png "Patient Vital Signs")
+
 Laboratory measurements are made by acquiring a fluid from the patient's body (e.g. blood from an arterial line or urine from a [catheter](https://en.wikipedia.org/wiki/Catheter)) and then analyzing it in the laboratory.
 
 | Laboratory measurements |
@@ -106,29 +115,27 @@ Laboratory measurements are made by acquiring a fluid from the patient's body (e
 | Blood urea nitrogen     |
 | White blood cells       |
 
+Laboratory measurements taken from a patient are also strong indictators of a patient's health condition. Let's take anion gap as an example. [Anion gap](https://en.wikipedia.org/wiki/Anion_gap) is the difference between primary measured cations (sodium Na+ and potassium K+) and the primary measured anions (chloride Cl- and bicarbonate HCO3-) in [serum](https://en.wikipedia.org/wiki/Serum_(blood)) (blood). The test is mostly performed in patients with altered mental status, unknown exposures, acute renal failure, and acute illnesses [1]. A kernel density estimation plot is used to view the distribution of the values below shows the aniongap measurement on ICU admission comparison for survival and non-survival groups.
+
+![](/img/week3/aniongap-density.png "Anion Gap Density")
+
 ### 2.2 Visualization
 
 To get a better grasp of the effects of the predictors on the mortality outcomes, I explored the dataset with multiple visualizations.
 
-First, I extracted every vital sign data point of the first 24 hours of a patient upon entering the ICU. The raw vital signs of a patient looks as follows:
-
-![](/img/week10/single-patient-vitals.png "Patient Vital Signs")
-
-I used a 3d plot to see how different features affect a patient's mortality probability.
+Here, I used a 3d plot to see how different features affect a patient's mortality probability.
 
 In this visualization, I included age, heart rate and the [Glasgow Coma Scale](https://en.wikipedia.org/wiki/Glasgow_Coma_Scale) which is a score indicating the level of consciousness of a person. From the plot, patients with somewhat extreme values (low heart rate and Glasgow Coma Scale values) are more likely to die, shown with a red 'X'. Although this plot only shows 3 predictors, it is possible to change the variables on the 3 axis for visualizations.
 
 ![](/img/week3/3dplot.png "3D plot")
 
-Laboratory measurements taken from a patient are also strong indictators of a patient's health condition. Let's take anion gap as an example. [Anion gap](https://en.wikipedia.org/wiki/Anion_gap) is the difference between primary measured cations (sodium Na+ and potassium K+) and the primary measured anions (chloride Cl- and bicarbonate HCO3-) in [serum](https://en.wikipedia.org/wiki/Serum_(blood)) (blood). The test is mostly performed in patients with altered mental status, unknown exposures, acute renal failure, and acute illnesses [1]. A kernel density estimation plot is used to view the distribution of the values below shows the aniongap measurement on ICU admission comparison for survival and non-survival groups.
-
-![](/img/week3/aniongap-density.png "Anion Gap Density")
-
-In total, 48 features are used to build the model for both prediction tasks. To visualize high-dimensional data, I employed PCA and t-SNE as dimensionality reduction techniques.
+In total, 48 features are used to build the model for both prediction tasks. Since there are a high number of features, I was interested in seeing how high-dimensional data would look like in 2D using dimensionality reduction techniques like PCA and t-SNE.
 
 ![](/img/week4/pca-2d.png "PCA 2D Plot")
 
 ![](/img/week4/t-sne.png "t-SNE")
+
+From the plots, it can be noticed that there is a noticeable difference with each group forming its own cluster.
 
 ## 3. Preprocessing
 
@@ -143,7 +150,7 @@ The selection criteria is described below along with a short explanation. The fo
 * Second admissions of patients
     * Simplifies analysis which assumes independent observations
     * We avoid taking into account that ICU stays are highly correlated
-* Length of stay less than 2 days
+* Length of stay less than 1 day
     * Helps remove false positives that were placed in ICU for precautionary purposes
 
 ### 3.2 Data cleaning
@@ -154,7 +161,7 @@ Because not all lab measurements are recorded for every patient, a lot missing v
 
 ## 4. Basic model
 
-For mortality prediction, two machine learning classifiers were used: logistic regression and linear support vector machine. These algorithms are commonly used and allow to learn the relationship between predictor variables and a binary outcome variable.
+In this first model, I investigated how well predictions could be when not using time series data. I ignored the temporal structure of the data, and only used the entire data of the first 24 hours in the ICU for a patient. A single time-shot computing the minimum, maximum and mean for that time period was used for the vital signs. For mortality prediction, two machine learning classifiers were used: logistic regression and linear support vector machine. These algorithms are commonly used and allow to learn the relationship between predictor variables and a binary outcome variable.
 
 ### 4.1 Results
 
@@ -165,10 +172,10 @@ Using [stratified 10-fold cross-validation]([1]), the [auROC](https://en.wikiped
 |                     | Hospital mortality |
 | Logistic Regression | 84.64              |
 | Linear SVM          | 84.56              |
-| Random guess         |          50.00           |        
 | Logistic Regression (sklearn)         |  84.64              |
 | Linear SVM (sklearn)         |    84.56              |    
 | XGBoost             | 87.60              |  
+| Random guess         |          50.00           |        
 
 In addition to mortality prediction, 30-day, 1-year and ICU mortality prediction were evaluated. The barcharts below show the results for the different tasks.
 
@@ -208,7 +215,9 @@ One of the challenges with the MIMIC database is that vital signs are measured a
 
 Because space and computing power is limited, a sampling rate measuring capturing vital signs every hour was chosen, for the first 24 hours of a patient. Afterwards, lagged features from the last 3 hourly observations (t-1, t-2, t-3), which are the vital signs at the previous hours, were computed by shifting columns of the time stamp. 
 
-| timestamp           | heartrate-raw | hr_1h | hr_max_6h | hr_mean_6h | hr_median_6h | hr_min_6h |
+A rolling window then computes the mean, min, max and median over the entire vital signs time series of a patient in the last 6 hours.  The same vital signs used previously were included for this model. Below is a sample of data points with only heart rate used.
+
+| timestamp           | hr | hr_1h | hr_max_6h | hr_mean_6h | hr_median_6h | hr_min_6h |
 |---------------------|---------------|-------|-----------|------------|--------------|-----------|
 | 2100-06-09 13:00:00 | 90.0          | 74.0  | 90.0      | 79.85      | 77.0         | 74.0      |
 | 2100-06-09 14:00:00 | 81.0          | 90.0  | 90.0      | 79.28      | 77.0         | 74.0      |
@@ -216,18 +225,19 @@ Because space and computing power is limited, a sampling rate measuring capturin
 | 2100-06-09 16:00:00 | 79.0          | 79.0  | 90.0      | 79.42      | 79.0         | 74.0      |
 | 2100-06-09 17:00:00 | 68.0          | 79.0  | 90.0      | 78.14      | 79.0         | 68.0      |
 
-
-A rolling window then computes the mean, min, max and median over the entire vital signs time series of a patient in the last 6 hours.  The same vital signs used previously were included for this model. Below is a sample of data points with only heart rate used.
-
 To observe how these features differ between dying and surviving patients, a stacked histogram was plotted to view the distribution of these vital signs values across both groups. 
 
 ![](/img/finalweek/vitals-comparison-1week.png "Vital Sign comparison")
 
-In the end, the features included vital signs, their lagged observations and window computations, demographic information and the hospital length of stay of the patient. Three classifiers (logistic regression, linear SVM and random forest) were evaluated and compared. The feature matrix was constructed where a single row represented a patient observation at a certain point in time with the features mentionned above. Because the entire dataset consists of over 500,000, the training and testing set were sampled and evaluated several times. The subset of the data consisted of 100,000 points. The results were recorded in the following table.
+### 5.2 Results
+
+In the end, the features included vital signs, their lagged observations and window computations, demographic information and the hospital length of stay of the patient. Three classifiers (logistic regression, linear SVM and random forest) were evaluated and compared. The feature matrix was constructed where a single row represented a patient observation at a certain point in time with the features mentionned above. 
+
+Another challenge I faced was dealing with class imbalance and the size of the dataset which consists of over 500,000 data points. To address this issue, the training and testing set were subsampled and evaluated several times. The subset of the data consisted of 100,000 points and split in two for training and testing, and averaged over 10 runs. The results were recorded in the following table.
 
 | Classifier          | Test set AUC score (%)    |                            |
 |---------------------|---------------------------|----------------------------|
-|                     | 1-day Hospital mortality  | 7-day Hospital mortality   |
+|                     | 1-day hospital mortality  | 1-week hospital mortality   |
 | Logistic Regression | 73.48                     | 71.71                      |
 | Linear SVM          | 73.22                     | 71.54                      |
 | Random Forest       | 79.35                     | 79.64                      |
