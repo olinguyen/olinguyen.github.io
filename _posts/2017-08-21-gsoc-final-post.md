@@ -263,7 +263,7 @@ Because space and computing power is limited, a sampling rate measuring capturin
 
 A rolling window then computes the mean, min, max and median over the entire vital signs time series of a patient in the last 6 hours.  The same vital signs used previously were included for this model. Below is a sample of data points with only heart rate used.
 
-| timestamp           | hr | hr_1h | hr_max_6h | hr_mean_6h | hr_median_6h | hr_min_6h |
+| time           | hr | hr_1h | hr_max_6h | hr_mean_6h | hr_median_6h | hr_min_6h |
 |---------------------|---------------|-------|-----------|------------|--------------|-----------|
 |  13:00 | 90.0          | 74.0  | 90.0      | 79.85      | 77.0         | 74.0      |
 |  14:00 | 81.0          | 90.0  | 90.0      | 79.28      | 77.0         | 74.0      |
