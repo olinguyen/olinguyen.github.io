@@ -35,7 +35,7 @@ However, initatives like the Medical Information Mart For Intensive Care (MIMIC)
 
 Using the MIMIC database which includes vital signs, medications, diagnostic code and many more variables, along with feature engineering techniques, I investigated whether I could build a robust classifier to perform the following tasks which can be used to help hospitals and care units make decisions about the management of resources and staffing:
 
-1. **Mortality prediction:** Patient mortality is a primary outcome of interest hospital settings, therfore early detection of at-risk patients is important. Mortality prediction is formulated as a binary classification problem, where the target label is whether the patient died before hospital discharge, or within a fixed time window e.g. likelihood of dying in 1 day, 1 week or 1 month in time.
+1. **Mortality prediction:** Patient mortality is a primary outcome of interest in hospital settings, therefore early detection of at-risk patients is important. Mortality prediction is formulated as a binary classification problem, where the target label is whether the patient died before hospital discharge, or within a fixed time window e.g. likelihood of dying in 1 day, 1 week or 1 month in time.
 
 2. **Hospital length of stay:** Forecasting the hospital lenght of stay of a patient is also an important problem that could help manage hospital resources and cost. This can be formulated as a regression task where the amount of days that a patient is likely to spend at the hospital is predicted. 
 
