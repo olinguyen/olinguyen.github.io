@@ -45,7 +45,7 @@ I first experimented with a basic model which ignores temporal structure in the 
 2. Built machine learning models for the predictions tasks
 3. Evaluated and compared the performance of various algorithms 
 
-In the second improved model, I took into account the complexity of time series data, since past vital signs and how they previously fluctuated can be strong indicators of the current condition of a patient. The problem is still modeled as a binary classification problem, but now with time series data as a predictor. In this part, I had to compute features to model temporal data and use it for mortality prediction at any point in time.
+In the second improved model, I took into account the complexity of time series data, since past vital signs and how they previously fluctuated can be strong indicators of the current condition of a patient. The improved model of patient mortality is still a binary classification, but I now included temporal features from the time series of the vital signs data. For example, I added information about the health state of the patient from previous points in time e.g. the previous hours, the mean/median/min/max value of the last 6 hours, etc.
 
 From there, I explored the pros and cons of each model, the challenges of using time series data and compared the different approaches while providing discussions on the analysis & results.
 
@@ -71,50 +71,7 @@ Additional information regarding the MIMIC database can be found in the [publish
 
 ### 2.1 Features
 
-Predictors from three main categories were extracted: demographic information, vital sign data and laboratory measurements. These were selected as the most relevant information in determining the likelihood of mortality and hospital length of stay.
-
-| Demographic & Clinical Info             | Description |
-|-------------------------|---------------------------------------------|
-| Age                     | Age of the patient upon entering the ICU    |
-| Gender                  | Patient gender (male or female)             |
-| Hospital length of stay | Number of days spent in the hospital        |
-| ICU length of stay      | Number of days spent in the ICU             |
-| First care unit         | ICU type in which the patient was cared for |
-| Admission type          | Admission type the patient entered          |
-
-Vital signs are clinical measurements that describe the state of a patient's body functions.
-
-| Vital sign               | Description |
-|--------------------------|-------------|
-| Heart Rate               | Heartbeat rate of the patient |
-| Mean Blood Pressure      | Average pressure in a patient's arteries during one cardiac cycle       |
-| Diastolic blood pressure | Pressure when the heart is at rest between beats            |
-
-I first experimented with a basic model which ignores temporal structure in the data, and attempted to perform mortality prediction. In the second improved model, I incorporated lagged features which takes into account the complexity of time series data. From there, I explored the pros and cons of each model, the challenges of using time series data and discussions on the analysis & results.
-
-## 2. Overview of MIMIC
-
-The MIMIC database mainly includes demographic, administrative, clinical data and much more from thousands of critical care patients. The table and the plot below provides basic descriptive statistics of the patients and an overview of the dataset.
-
-| Information                    | Totals |
-|--------------------------------|-------------|
-| Age, years, median          data-cleaning   | 65.769      |
-| Gender, male (%)               | 56.207      |
-| Distinct number of patients    | 38,597      |
-| Distinct ICU stays             | 53,423      |
-| Hospital admissions            | 49,785      |
-| Hospital length of stay (days) | 11.545      |
-| ICU length of stay (days)      | 2.144       |
-| Hospital mortality (%)         | 11.545      |
-| ICU mortality (%)              | 8.545       |
-
-![](/img/week2/hist-mimic.png "Histograms for MIMIC")
-
-Additional information regarding the MIMIC database can be found in the [published paper](https://www.nature.com/articles/sdata201635) as well.
-
-### 2.1 Features
-
-Predictors from three main categories were extracted: demographic information, vital sign data and laboratory measurements. These were selected as the most relevant information in determining the likelihood of mortality and hospital length of stay.
+I extracted predictors from three main categories: demographic information, vital sign data and laboratory measurements. These were selected as the most relevant information in determining the likelihood of mortality and hospital length of stay.
 
 | Demographic & Clinical Info             | Description |
 |-------------------------|---------------------------------------------|
@@ -192,7 +149,7 @@ Because MIMIC is an ICU database, the focus was placed on patients admitted to a
 The selection criteria is described below along with a short explanation. The following points were excluded from the dataset:
 
 * Patients aged less than 16 years old
-    * This also removed neonates and children, which likely have different predictors than adults
+    * This also removed newborns and children, which likely have different predictors than adults
 * Second admissions of patients
     * Simplifies analysis which assumes independent observations
     * We avoid taking into account that ICU stays are highly correlated
@@ -201,9 +158,9 @@ The selection criteria is described below along with a short explanation. The fo
 
 ### 3.2 Data cleaning
 
-Because not all lab measurements are recorded for every patient, a lot missing values and NaNs were found in the dataset which were replaced with the mean value.
+Because not all lab measurements are recorded for every patient, I replaced missing values and NaNs in the dataset with the mean value as a data imputation technique, to maintain a reasonable size for the training and testing set and not to introduce any bias.
 
- Additionally, data standardization was applied to make each feature have zero mean by subtracting the mean, and have unit-variance to ensure that all the data is normalized, that the features are in the same range.
+Additionally, data standardization was applied to make each feature have zero mean by subtracting the mean, and have unit-variance to ensure that all the data is normalized, that the features are in the same range. This also speeds up the training time for classifiers like the SVM.
 
 ## 4. Basic model
 
@@ -211,7 +168,7 @@ In this first model, I investigated how well predictions could be when not using
 
 ### 4.1 Results
 
-Using [stratified 10-fold cross-validation]([1]), the [auROC](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) was the metric used to evaluate the performance of the classifiers for mortality prediction and recorded in the table below. The scores were also compared with sklearn's implementation of logistic regression and linear SVM and yielded identical results. Finally, I compared the result with [XGBoost](xgboost.readthedocs.io), which is a popular algorithm used in Kaggle competitions.
+I evaluated the performance of my model using the [auROC](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) as the evaluation metric for mortality prediction and recorded the results in the table below using stratified 10-fold cross-validation. [Stratified 10-fold cross-validation]([1]) gives a good estimate for the performance of our model, as the data is divided into k equally sized folds in such a way that labels in each partition are roughly the same. I also compared the scores with sklearn's implementation of logistic regression and linear SVM and yielded identical results. Finally, I compared the result with [XGBoost](xgboost.readthedocs.io), which is a popular algorithm used in Kaggle competitions.
 
 | Classifier          | Mean AUC across 10 folds (%) |
 |---------------------|--------------------|
@@ -275,7 +232,7 @@ To observe how these features differ between dying and surviving patients, I plo
 
 ![](/img/finalweek/vitals-comparison-1day.png "Vital Sign comparison")
 
-While there is no clear conclusion that can be drawn from looking at the vital signs histograms, this may indicate that these variables vary depending on the patient. For instance, a patients'
+While there is no clear conclusion that can be drawn from looking at the vital signs histograms, this may indicate that these variables vary depending on the patient. For instance, the mean/median value of heart rate greatly varies depending on the patient, even when dying.
 
 ### 5.2 Model
 
@@ -311,9 +268,9 @@ I first started off with a basic model using demographic information, vital sign
 
 ## Future improvements
 
-While I used lagged features and sliding window summary statistics for the time series data, there exists many other methods of modeling data of time. Recurrent neural networks have shown to be effective, especially with sequences and temporal data.
+While I used lagged features and sliding window summary statistics for the time series data, there exists many other methods of modeling data of time series. Recurrent neural networks, for instance, have shown to be effective, especially with sequences and temporal data.
 
-Because of the size and complexity of the MIMIC database, there are many other types of problems that can tackled. Here are some challenging areas that were beyond the scope of this data project, but that would have been interesting to include.
+Because of the size and complexity of the MIMIC database, there are many other types of problems that can tackled. Here are some challenging areas that were beyond the scope of this data project, but that would have been interesting to address.
 
 * Patient similarity
 * Survival analysis (time-to-event prediction)
