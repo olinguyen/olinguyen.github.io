@@ -23,6 +23,10 @@ description:
 
 # List of links in the navigation bar
 navbar-links:
+  Blog:
+    - Posts: "blog"
+    - Archive: "archive"
+    - Tags: "tags"
   About Me: "aboutme"
   Projects: "projects"
 
