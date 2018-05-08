@@ -2,7 +2,7 @@
 layout: post
 title: Google Summer of Code - Month 1 Recap
 # bigimg: /img/gsoc-logo.png
-tags: [gsoc, data-science, machine-learning]
+tags: [gsoc, machine-learning]
 ---
 
 Over the past few weeks, I worked on a data project for patient monitoring and decision support using health data. I've summarized most of my work in the following blog post. While this current post will describe the approaches that I've taken for the problem, my weekly blog posts are more detailed and read more as story. All the code and notebooks can be found in the following [link](https://github.com/olinguyen/gsoc2017-shogun-dataproject).

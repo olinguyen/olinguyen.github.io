@@ -2,7 +2,7 @@
 layout: post
 title: Google Summer of Code - Final Blog Post
 # bigimg: /img/gsoc-logo.png
-tags: [gsoc, data-science, machine-learning]
+tags: [gsoc, machine-learning]
 ---
 
 The following blog post summarizes most of my work for the [Google Summer of Code 2017](https://developers.google.com/open-source/gsoc) with the [Shogun Machine Learning Toolbox](shogun.ml). A python notebook that accompanies this blog post can be found [here](https://github.com/olinguyen/gsoc2017-shogun-dataproject/blob/master/Shogun%20Showroom.ipynb).
