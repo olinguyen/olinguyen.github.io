@@ -3,7 +3,7 @@ layout: post
 title: Hiking in Japan
 # image: /img/hiking_cover.jpg
 bigimg: /img/hiking_cover.jpg
-tags: [hiking, japan]
+tags: [hiking, japan, travel]
 ---
 
 Hiking! One of my favorite activties while I was in Japan. There's just something special and unique about mountains that I can't quite explain. What's so great about hiking in Japan is that it's so accessible/easy to get around. By trains and buses alone I can get to almost any mountain around me. No cars, no plans (it's really easy to just wing it), no camping gear. Most hikes take on average 6 hours to reach the peak, so I stayed at a mountain hut most of the time, or camped out when I was lucky enough to meet nice strangers. Even then, it is totally possible to do day-hikes without having to spend money to stay at a lodge house. I usually preferred to sleep on the mountain so that I could watch the sunset and sunrise at the peaks, but also to enjoy the food prepared at the mountain hut. Finally, a hike in Japan is never complete until one visits an [onsen][onsen] to clean and recover from the long and exhausting hikes.

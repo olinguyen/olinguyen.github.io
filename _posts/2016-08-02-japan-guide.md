@@ -3,7 +3,7 @@ layout: post
 title: Japan Travel Guide
 # image: /img/temples.jpg
 bigimg: /img/temples.jpg
-tags: [japan, guides]
+tags: [japan, travel]
 ---
 
 I was recently asked a few times about some travel advice, tips and places to go in Japan. Here's my attempt to provide an all-around guide to travelling in Japan. I'll try to update this when I have more time.
