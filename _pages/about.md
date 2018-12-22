@@ -8,11 +8,11 @@ redirect_from:
   - /about.html
 ---
 
-I'm an Applied Research Scientist at [Element AI](http://elementai.com) working on deep learning applied to problems in natural language processing. More specifically, I'm currently working on problems in information extraction and document understanding.
+I'm an Applied Research Scientist at [Element AI](http://elementai.com) working on deep learning problems in natural language processing. More specifically, I'm currently working on problems in information extraction and document understanding.
 
-I completed my MAsc in the Electrical and Computer Engineering department at the University of Waterloo working on data-driven decision making in healthcare. My research focused on developing methods for home health monitoring and data-driven decision-making systems using the abundance of data coming from various devices today. 
+I completed my MAsc with [Dr. Mark Crowley](https://markcrowley.ca/) and [Dr. Joon Lee](https://www.ucalgary.ca/future-students/graduate/supervisor/joon-lee) in the Electrical and Computer Engineering department at the University of Waterloo working on data-driven decision making in healthcare. My research focused on developing methods for home health monitoring and data-driven decision-making systems using the abundance of data coming from various devices today. 
 
-Previously, I completed my Bachelor's degree in Computer Engineering at Concordia University in Montreal. During my undergraduate studies, I worked as a research intern at NTT in Japan on media event detection from online videos. I also worked on digital signal processing and embedded systems as a research assistant during my undergrad. Finally, I completed co-op internships as a software developer and participated in many extra-curricular activities in robotic competitions and electronics projects.
+Previously, I completed my Bachelor's degree in Computer Engineering at Concordia University in Montreal. During my undergraduate studies, I worked as a research intern at NTT in Japan on media event detection from online videos and worked on digital signal processing and embedded systems as a research assistant at Concordia University with Thales. Finally, I completed co-op internships as a software developer in aerospace at CAE and participated in many extra-curricular activities in robotic competitions and electronics projects.
  
 In my free time, I love playing basketball, hiking, camping, listening to music (hip-hop, jazz and rock in particular).
 
@@ -42,13 +42,11 @@ Personal Projects
       <td width="25%"><img src="images/kaggle.png" alt="cubesat" width="130" height="130"></td>
       <td width="75%" valign="top">
         <p>
-          <a href="https://spaceconcordia.ca">
+          <a href="https://www.kaggle.com/c/data-science-bowl-2017">
             <papertitle>Lung Cancer Detection</papertitle>
           </a>
           <br>
-          <strong>Kaggle</strong> 
-          <br>
-          <em>Data Science Bowl</em>, 2017
+          <em>Kaggle Data Science Bowl</em>, 2017
           <br>
           <a href="https://github.com/olinguyen/kaggle-lung-cancer-detection">Code</a> 
           <br>
