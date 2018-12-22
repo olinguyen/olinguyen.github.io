@@ -18,11 +18,87 @@ In my free time, I love playing basketball, hiking, camping, listening to music 
 
 Personal Projects
 ======
-- **Google Summer of Code 2017 (Shogun Machine Learning Toolbox)**:  Applied machine learning algorithms on health data for mortality prediction. [Summary](https://gist.github.com/olinguyen/510f29a2dfeeca1aa30ac9bc2b474580)
-- **Lung Cancer Detection (Kaggle)**: Built a deep learning model that predicts whether or not a
-patient will develop lung cancer using CT scan images. [Code](https://github.com/olinguyen/kaggle-lung-cancer-detection)
-- **ConSat-3 (CSDC3)**: Developed and integrated embedded Linux software applications for a cube satellite. [Article 1](http://www.concordia.ca/cunews/main/stories/2016/06/27/stratospheric-successes-for-space-concordia-satellite-rocketry.html) & [2](https://www.theglobeandmail.com/news/national/education/university-students-design-self-healing-satellites/article17221271/)
-- **Machine Competition (Jeux de Genie 2015)**: Developed the software for a fully autonomous robot that had to complete multiple tasks around a complex track. The robot won the 1st prize competing against participants in all engineering schools in Quebec. [Video](https://www.youtube.com/watch?v=Ur3Zk_mePiM&feature=youtu.be)
+
+  <table width="100%" align="center" border="0" cellpadding="20">
+    <tr>
+      <td width="25%"><img src="images/shogun.png" alt="cubesat" width="130" height="130"></td>
+      <td width="75%" valign="top">
+        <p>
+          <a href="https://shogun.ml">
+            <papertitle>Shogun Machine Learning Toolbox</papertitle>
+          </a>
+          <br>
+          <a href="https://gist.github.com/olinguyen/510f29a2dfeeca1aa30ac9bc2b474580">Summary</a>
+          <br>
+          <em>Google Summer of Code</em>, 2017
+          <br>
+          <p>
+            Applied machine learning algorithms on health data for mortality prediction.
+          </p>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td width="25%"><img src="images/kaggle.png" alt="cubesat" width="130" height="130"></td>
+      <td width="75%" valign="top">
+        <p>
+          <a href="https://spaceconcordia.ca">
+            <papertitle>Lung Cancer Detection</papertitle>
+          </a>
+          <br>
+          <strong>Kaggle</strong> 
+          <br>
+          <em>Data Science Bowl</em>, 2017
+          <br>
+          <a href="https://github.com/olinguyen/kaggle-lung-cancer-detection">Code</a> 
+          <br>
+          <p>
+            Built a deep learning model that predicts whether or not a patient will develop lung cancer using CT scan images.
+          </p>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td width="25%"><img src="images/cubesat.png" alt="cubesat" width="130" height="130"></td>
+      <td width="75%" valign="top">
+        <p>
+          <a href="https://spaceconcordia.ca">
+            <papertitle>ConSat-3</papertitle>
+          </a>
+          <br>
+          <strong>Space Concordia</strong> 
+          <br>
+          <em>Canadian Satellite Design Challenge</em>, 2016
+          <br>
+          <a href="http://www.concordia.ca/cunews/main/stories/2016/06/27/stratospheric-successes-for-space-concordia-satellite-rocketry.html">Concordia article</a> / 
+          <a href="https://www.theglobeandmail.com/news/national/education/university-students-design-self-healing-satellites/article17221271">Globe & Mail</a>
+          <br>
+          <p>
+            Developed and integrated embedded Linux software applications for a cube satellite.
+          </p>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td width="25%"><img src="images/machine.png" alt="machine" width="170" height="170"></td>
+      <td width="75%" valign="top">
+        <p>
+          <a href="https://jeuxdegenie.qc.ca">
+            <papertitle>Machine Competition</papertitle>
+          </a>
+          <br>
+          <em>Jeux de Genie</em>, 2015
+          <br>
+          <a href="https://www.youtube.com/watch?v=Ur3Zk_mePiM&feature=youtu.be">Video</a>
+          <br>
+          <p>
+            Developed the software for a fully autonomous robot that had to complete multiple tasks around a complex track. The robot won the 1st prize competing against participants in all engineering schools in Quebec. 
+          </p>
+        </p>
+      </td>
+    </tr>
+  </table>
+
 
 Publications
 ======
