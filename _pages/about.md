@@ -28,9 +28,9 @@ Personal Projects
             <papertitle>Shogun Machine Learning Toolbox</papertitle>
           </a>
           <br>
-          <a href="https://gist.github.com/olinguyen/510f29a2dfeeca1aa30ac9bc2b474580">Summary</a>
-          <br>
           <em>Google Summer of Code</em>, 2017
+          <br>
+          <a href="https://gist.github.com/olinguyen/510f29a2dfeeca1aa30ac9bc2b474580">Summary</a>
           <br>
           <p>
             Applied machine learning algorithms on health data for mortality prediction.
