@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "About me"
+title: "About Me"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -10,11 +10,19 @@ redirect_from:
 
 I'm an Applied Research Scientist at [Element AI](http://elementai.com) working on deep learning applied to problems in natural language processing. More specifically, I'm currently working on problems in information extraction and document understanding.
 
-I completed my MAsc in the Electrical and Computer Engineering department at University of Waterloo working on data-driven decision making in healthcare. My research focused on developing methods for home health monitoring and data-driven decision making systems using the abundance of data coming from various devices today. 
+I completed my MAsc in the Electrical and Computer Engineering department at the University of Waterloo working on data-driven decision making in healthcare. My research focused on developing methods for home health monitoring and data-driven decision-making systems using the abundance of data coming from various devices today. 
 
 Previously, I completed my Bachelor's degree in Computer Engineering at Concordia University in Montreal. During my undergraduate studies, I worked as a research intern at NTT in Japan on media event detection from online videos. I also worked on digital signal processing and embedded systems as a research assistant during my undergrad. Finally, I completed co-op internships as a software developer and participated in many extra-curricular activities in robotic competitions and electronics projects.
  
-On my free time, I love playing basketball, hiking, camping, listening to music (hip-hop, jazz and rock in particular).
+In my free time, I love playing basketball, hiking, camping, listening to music (hip-hop, jazz and rock in particular).
+
+Personal Projects
+======
+- **Google Summer of Code 2017 (Shogun Machine Learning Toolbox)**:  Applied machine learning algorithms on health data for mortality prediction. [Summary](https://gist.github.com/olinguyen/510f29a2dfeeca1aa30ac9bc2b474580)
+- **Lung Cancer Detection (Kaggle)**: Built a deep learning model that predicts whether or not a
+patient will develop lung cancer using CT scan images. [Code](https://github.com/olinguyen/kaggle-lung-cancer-detection)
+- **ConSat-3 (CSDC3)**: Developed and integrated embedded Linux software applications for a cube satellite. [Article 1](http://www.concordia.ca/cunews/main/stories/2016/06/27/stratospheric-successes-for-space-concordia-satellite-rocketry.html) & [2](https://www.theglobeandmail.com/news/national/education/university-students-design-self-healing-satellites/article17221271/)
+- **Machine Competition (Jeux de Genie 2015)**: Developed the software for a fully autonomous robot that had to complete multiple tasks around a complex track. The robot won the 1st prize competing against participants in all engineering schools in Quebec. [Video](https://www.youtube.com/watch?v=Ur3Zk_mePiM&feature=youtu.be)
 
 Publications
 ======
