@@ -87,7 +87,9 @@ Personal Projects
           <br>
           <em>Jeux de Genie</em>, 2015
           <br>
-          <a href="https://www.youtube.com/watch?v=Ur3Zk_mePiM&feature=youtu.be">Video</a>
+          <a href="https://www.youtube.com/watch?v=Ur3Zk_mePiM&feature=youtu.be">Video</a> /
+          <a href="https://www.youtube.com/watch?v=Yya6PEEoIAk">Live Competition</a> /
+          <a href="http://www.concordia.ca/cunews/main/stories/2015/01/19/historic-finish-for-concordia-students-at-quebec-engineering-games.html">Article</a>
           <br>
           <p>
             Developed the software for a fully autonomous robot that had to complete multiple tasks around a complex track. The robot won the 1st prize competing against participants in all engineering schools in Quebec. 
@@ -102,7 +104,7 @@ Publications
 ======
 
 - **Olivier Nguyen**, [Population-level Indicators of Physical Activity, Sedentary Behaviour and Sleep in Canada based on Twitter](https://uwspace.uwaterloo.ca/handle/10012/13603), University of Waterloo MASc Thesis (2018).
-- Ben Kim, **Olivier Nguyen**, Arjun Puri, Joon Lee. [Smart activity tracker adherence and acceptance by older adults](https://embs.papercept.net/conferences/conferences/BHI18/program/BHI18_ContentListWeb_2.html). IEEE Biomedical and Health Informatics (2018).
+#- Ben Kim, **Olivier Nguyen**, Arjun Puri, Joon Lee. [Smart activity tracker adherence and acceptance by older adults](https://embs.papercept.net/conferences/conferences/BHI18/program/BHI18_ContentListWeb_2.html). IEEE Biomedical and Health Informatics (2018).
 - Puri Arjun, Ben Kim, **Olivier Nguyen**, Paul Stolee, James Tung, Joon Lee. [User Acceptance of Wrist-Worn Activity Trackers Among Community-Dwelling Older Adults: Mixed Method Study](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5707431/). JMIR mHealth and uHealth 5-11 (2017).
 - **Olivier Nguyen**, Yongqing Sun, Kyoko Sudo, Akira Kojima. [Semantic Video Classification by Fusing Multimodal
 High-Level Features](http://cvim.ipsj.or.jp/MIRU2015/index.php?id=program). Meeting on Image Recognition and Understanding (2015).
