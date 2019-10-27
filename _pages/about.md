@@ -16,6 +16,11 @@ Previously, I completed my Bachelor's degree in Computer Engineering at Concordi
  
 In my free time, I love playing basketball, hiking, camping, listening to music (hip-hop, jazz and rock in particular).
 
+Talks
+======
+
+- [Advice on becoming a full-stack ML practitioner](/files/mcgill-talk.pdf), McGill University (October 28, 2019).
+
 Personal Projects
 ======
 
