@@ -16,11 +16,15 @@ Previously, I completed my Bachelor's degree in Computer Engineering at Concordi
  
 In my free time, I love playing basketball, hiking, camping and cycling.
 
+
+
 Recent
 ======
 
 - *Writing*: [Information extraction from 2D documents: a hybrid approach](https://www.elementai.com/news/2020/information-extraction-from-2d-documents-a-hybrid-approach) (March 25, 2020).
 - *Talk*: [Advice on becoming a full-stack ML practitioner](/files/mcgill-talk.pdf), McGill University (October 28, 2019).
+
+
 
 Personal Projects
 ======
