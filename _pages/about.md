@@ -8,17 +8,18 @@ redirect_from:
   - /about.html
 ---
 
-I'm an Applied Research Scientist at [Element AI](http://elementai.com) working on applying the latest developments in natural language processing and information retrieval for a [knowledge management and discovery product](https://www.elementai.com/products/knowledge-scout). I also worked on problems in information extraction and document understanding for an [automated document processing product](https://www.elementai.com/products/document-intelligence).
+I'm an Applied Research Scientist at [Element AI](http://elementai.com) working on NLP (question answering, semantic search, language understanding) and everything around it (engineering, scaling).
+Some of my highlights there are building and deploying NLP models for [Knowledge Scout](https://www.elementai.com/products/knowledge-scout) to deliver smarter search capabilities on unstructured data, and developing document entity extraction models for [Document Intelligence](https://www.elementai.com/products/document-intelligence) to automate document processing.
 
 I completed my MAsc with [Dr. Mark Crowley](https://markcrowley.ca/) and [Dr. Joon Lee](https://www.ucalgary.ca/future-students/graduate/supervisor/joon-lee) in the Electrical and Computer Engineering department at the University of Waterloo working on data-driven decision making in healthcare. My research focused on developing methods for home health monitoring and data-driven decision-making systems using the abundance of data coming from various devices today. 
 
-Previously, I completed my Bachelor's degree in Computer Engineering at Concordia University in Montreal. During my undergraduate studies, I worked as a research intern at NTT in Japan on media event detection from online videos and worked on digital signal processing and embedded systems as a research assistant at Concordia University with Thales. Finally, I completed co-op internships as a software developer in aerospace at CAE and participated in many extra-curricular activities in robotic competitions and electronics projects.
+Previously, I completed my Bachelor's degree in Computer Engineering at Concordia University in Montreal. During my undergraduate studies, I worked as a research intern at NTT in Japan on media event detection from online videos and worked on digital signal processing and embedded systems as a research assistant at Concordia University with Thales. I also completed co-op internships as a software developer in aerospace at CAE and participated in many extra-curricular activities in robotic competitions and electronics projects.
  
-In my free time, I love playing basketball, hiking, camping and cycling.
+In my free time, I like playing basketball, hiking, camping and cycling.
 
 
 
-Recent
+News
 ======
 
 - *Writing*: [Information extraction from 2D documents: a hybrid approach](https://www.elementai.com/news/2020/information-extraction-from-2d-documents-a-hybrid-approach) (March 25, 2020).
@@ -82,7 +83,7 @@ Personal Projects
           <a href="https://www.theglobeandmail.com/news/national/education/university-students-design-self-healing-satellites/article17221271">Globe & Mail</a>
           <br>
           <p>
-            Developed and integrated embedded Linux software applications for a cube satellite.
+            Developed and integrated embedded Linux software applications for a cube satellite. Our team won 1st place against competing Canadian universities.
           </p>
         </p>
       </td>
@@ -103,6 +104,38 @@ Personal Projects
           <br>
           <p>
             Developed the software for a fully autonomous robot that had to complete multiple tasks around a complex track. The robot won the 1st prize competing against participants in all engineering schools in Quebec. 
+          </p>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td width="25%"><img src="images/uofthacks.png" alt="uoft" width="130" height="130"></td>
+      <td width="75%" valign="top">
+        <p>
+          <papertitle>LearnStream</papertitle>
+          <br>
+          <em>UofTHacks IV</em>
+          <br>
+          <a href="https://github.com/Lauraxia/HearingAid">Code</a>
+          <br>
+          <p>
+            Developed an app for students with hearing impairments that transcribes speech from a lecture to text in real time. Our project won the 3rd overall prize.
+          </p>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td width="25%"><img src="images/h4h.png" alt="h4h" width="130" height="130"></td>
+      <td width="75%" valign="top">
+        <p>
+          <papertitle>EyeTalk</papertitle>
+          <br>
+          <em>Hack4Health 2.0</em>
+          <br>
+          <a href="https://uwaterloo.ca/hack4health/about-hack4health/hack4health-20-winners">Event Winners</a>
+          <br>
+          <p>
+            Built a mobile app that synthesizes words and sentences through detection of eye movement, helping users with severe MS and ALS to communicate better. Our team received a 500$ award.
           </p>
         </p>
       </td>
