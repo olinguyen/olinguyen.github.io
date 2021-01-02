@@ -12,6 +12,9 @@ Everyday, the healthcare industry creates large amounts of patient and clinical 
 However, initatives like the Medical Information Mart For Intensive Care (MIMIC) database project have allowed for everyone to use and experiment with health data. In particular, the [MIMIC database](https://mimic.physionet.org/
 ) is a critical care database made freely available for researchers around the world to develop and evaluate intensive care unit (ICU) patient monitoring and decision support systems that will improve the efficiency, accuracy and timeliness of clinical decision-making in critical care.
 
+This post is an exhautive summary of my project for Google Summer of Code 2017 with [shogun.ml](https://shogun.ml). You can find more concise details about the work (code, notebooks, PRs) [here](https://gist.github.com/olinguyen/510f29a2dfeeca1aa30ac9bc2b474580).
+{: .notice}
+
 
 ## Table of Contents
 - [Table of Contents](#table-of-contents)
@@ -236,7 +239,5 @@ Random forest produced the best results among all three classifiers for 1-day an
 Because of the size and complexity of the MIMIC database, there are many problems that can tackled. Here are some challenging areas that were beyond the scope of this data project, but that would have been interesting to include.
 
 * Patient similarity
-
 * Survival analysis (time-to-event prediction)
-
 * Disease prediction

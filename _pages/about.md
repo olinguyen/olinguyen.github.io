@@ -100,10 +100,11 @@ Personal Projects
           <br>
           <a href="https://www.youtube.com/watch?v=Ur3Zk_mePiM&feature=youtu.be">Video</a> /
           <a href="https://www.youtube.com/watch?v=Yya6PEEoIAk">Live Competition</a> /
-          <a href="http://www.concordia.ca/cunews/main/stories/2015/01/19/historic-finish-for-concordia-students-at-quebec-engineering-games.html">Article</a>
+          <a href="http://www.concordia.ca/cunews/main/stories/2015/01/19/historic-finish-for-concordia-students-at-quebec-engineering-games.html">Article</a> /
+          <a href="https://vimeo.com/120708618">Documentary</a>
           <br>
           <p>
-            Developed the software for a fully autonomous robot that had to complete multiple tasks around a complex track. The robot won the 1st prize competing against participants in all engineering schools in Quebec. 
+            Developed the software for a fully autonomous robot that had to complete multiple tasks around a complex track. The robot won the 1st prize competing against all engineering schools in Quebec. 
           </p>
         </p>
       </td>
@@ -114,7 +115,9 @@ Personal Projects
         <p>
           <papertitle>LearnStream</papertitle>
           <br>
+          <a href="https://www.hackerearth.com/challenges/hackathon/uofthacks-iv/">
           <em>UofTHacks IV</em>
+          </a>
           <br>
           <a href="https://github.com/Lauraxia/HearingAid">Code</a>
           <br>
