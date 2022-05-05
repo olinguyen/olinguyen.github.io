@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I'm an Applied Research Scientist at [ServiceNow](https://www.servicenow.com/) that joined through the acquisition of [Element AI](http://elementai.com). I work on problems in NLP (question answering, semantic search, natural language understanding) and everything around it (research, engineering, scaling).
+I was previously an Applied Research Scientist at [ServiceNow](https://www.servicenow.com/) that joined through the acquisition of [Element AI](http://elementai.com). I worked on problems in NLP (question answering, semantic search, natural language understanding) and everything around it (research, engineering, scaling).
 Some of my highlights at Element AI were building and deploying NLP models for [Knowledge Scout](https://www.elementai.com/products/knowledge-scout) to deliver smarter search capabilities on unstructured data, and developing document entity extraction models for [Document Intelligence](https://www.elementai.com/products/document-intelligence) to automate document processing.
 
 I completed my MAsc with [Dr. Mark Crowley](https://markcrowley.ca/) and [Dr. Joon Lee](https://www.ucalgary.ca/future-students/graduate/supervisor/joon-lee) in the Electrical and Computer Engineering department at the University of Waterloo working on data-driven decision making in healthcare. My research focused on developing methods for home health monitoring and data-driven decision-making systems using the abundance of data coming from various devices today. 
