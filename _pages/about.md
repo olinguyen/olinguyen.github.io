@@ -8,12 +8,14 @@ redirect_from:
   - /about.html
 ---
 
-I was previously an Applied Research Scientist at [ServiceNow](https://www.servicenow.com/) that joined through the acquisition of [Element AI](http://elementai.com). I worked on problems in NLP (question answering, semantic search, natural language understanding) and everything around it (research, engineering, scaling).
+I'm an Applied Scientist working on the Proactive Safety team building ML applications to detect and remove harmful content and behavior from the Twitch platform.
+
+Previously, I was an Applied Research Scientist at [ServiceNow](https://www.servicenow.com/) that joined through the acquisition of [Element AI](http://elementai.com). I worked on problems in NLP (question answering, semantic search, natural language understanding) and everything around it (research, engineering, scaling).
 Some of my highlights at Element AI were building and deploying NLP models for [Knowledge Scout](https://www.elementai.com/products/knowledge-scout) to deliver smarter search capabilities on unstructured data, and developing document entity extraction models for [Document Intelligence](https://www.elementai.com/products/document-intelligence) to automate document processing.
 
 I completed my MAsc with [Dr. Mark Crowley](https://markcrowley.ca/) and [Dr. Joon Lee](https://www.ucalgary.ca/future-students/graduate/supervisor/joon-lee) in the Electrical and Computer Engineering department at the University of Waterloo working on data-driven decision making in healthcare. My research focused on developing methods for home health monitoring and data-driven decision-making systems using the abundance of data coming from various devices today. 
 
-Before that, I finished my Bachelor's degree in Computer Engineering at Concordia University in Montreal. During my undergraduate studies, I worked as a research intern at NTT in Japan on media event detection from online videos and worked on digital signal processing and embedded systems as a research assistant at Concordia University in collaboration with Thales Group. I also completed co-op internships as a software developer in aerospace at CAE and participated in many extra-curricular activities in robotics and electronics competitions.
+Before that, I finished my Bachelor's degree in Computer Engineering at Concordia University in Montreal. During that time, I worked as a research intern at NTT in Japan on media event detection from online videos, and worked on digital signal processing and embedded systems as a research assistant at Concordia University in collaboration with Thales Group. I also completed co-op internships as a software developer in aerospace at CAE and participated in many extra-curricular activities in robotics and electronics competitions.
  
 In my free time, I like playing basketball, hiking, camping and cycling.
 
