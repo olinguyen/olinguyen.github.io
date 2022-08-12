@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I'm an Applied Scientist working on the Proactive Safety team building ML applications to detect and remove harmful content and behavior from the Twitch platform.
+I'm an Applied Scientist at Twitch working on the Proactive Safety team building ML applications to detect and remove harmful content and behavior from the platform.
 
 Previously, I was an Applied Research Scientist at [ServiceNow](https://www.servicenow.com/) that joined through the acquisition of [Element AI](http://elementai.com). I worked on problems in NLP (question answering, semantic search, natural language understanding) and everything around it (research, engineering, scaling).
 Some of my highlights at Element AI were building and deploying NLP models for [Knowledge Scout](https://www.elementai.com/products/knowledge-scout) to deliver smarter search capabilities on unstructured data, and developing document entity extraction models for [Document Intelligence](https://www.elementai.com/products/document-intelligence) to automate document processing.
