@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Olivier Nguyen"
 title_separator          : "-"
 name                     : &name "Olivier Nguyen"
-description              : &description "Applied Research Scientist @ Element AI"
+description              : &description "Applied Scientist @ Twitch"
 url                      : https://olinguyen.com # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "olinguyen.github.io"
@@ -98,7 +98,7 @@ author:
   github           : "olinguyen"
   google_plus      :
   keybase          :
-  instagram        : "oliviernguyen"
+  instagram        :
   lastfm           :
   linkedin         : "nguyenolivier"
   orcid            : 
