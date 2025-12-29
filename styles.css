@@ -146,7 +146,7 @@ main {
 .work-list li::before {
   content: '';
   position: absolute;
-  left: -20px;
+  left: calc(-16px - 4.5px);
   top: 50%;
   transform: translateY(-50%);
   width: 7px;
