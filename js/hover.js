@@ -141,7 +141,7 @@
         let childrenEls = Array.prototype.slice.apply(clonedEl.querySelectorAll('path'));
         childrenEls.push(clonedEl);
         for (let k = 0; k < childrenEls.length; k++) {
-          let color = `hsl(${Math.round(Math.random() * 360)}, 80%, 65%)`;
+          let color = `hsl(${Math.round(Math.random() * 80 + 180)}, 80%, 65%)`;
           setCss(childrenEls[k], {
             color: color,
             fill: color,
