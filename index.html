@@ -54,6 +54,14 @@
     <svg class="sun icon-stroke"><use href="#icon-sun"></use></svg>
   </button>
 
+  <div class="achievement-banner terminal" id="achievement">
+    <div class="terminal-header">reward_model.log</div>
+    <div class="terminal-body">
+      <div class="terminal-line"><span class="terminal-prompt">&gt;</span> human_feedback: <span class="terminal-positive">positive</span></div>
+      <div class="terminal-line"><span class="terminal-prompt">&gt;</span> reward: <span class="terminal-reward">+1</span></div>
+    </div>
+  </div>
+
   <main>
     <div class="layout">
       <!-- LEFT SIDE: LOGO + NAME + LINKS -->
@@ -195,7 +203,10 @@
     const profilePic = document.getElementById('profile-pic');
     const thinking = document.getElementById('thinking');
     const thinkingText = thinking.querySelector('.thinking-text');
+    const achievement = document.getElementById('achievement');
     let thinkingTimeout = null;
+    let clickCount = 0;
+    let clickTimer = null;
 
     const thinkingMessages = [
       'Thinking',
@@ -215,6 +226,19 @@
     ];
 
     profilePic.addEventListener('click', () => {
+      // Track clicks for achievement
+      clickCount++;
+      if (clickTimer) clearTimeout(clickTimer);
+      clickTimer = setTimeout(() => { clickCount = 0; }, 500);
+
+      if (clickCount >= 3) {
+        clickCount = 0;
+        achievement.classList.add('show');
+        setTimeout(() => achievement.classList.remove('show'), 3000);
+        return;
+      }
+
+      // Original thinking animation
       if (thinkingTimeout) {
         clearTimeout(thinkingTimeout);
         thinkingTimeout = null;
