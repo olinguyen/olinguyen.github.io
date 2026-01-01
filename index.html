@@ -58,8 +58,12 @@
     <div class="layout">
       <!-- LEFT SIDE: LOGO + NAME + LINKS -->
       <section class="profile">
+        <div class="thinking-indicator" id="thinking">
+          <span class="thinking-spinner"></span>
+          <span class="thinking-text">Thinking</span><span class="thinking-dots"></span>
+        </div>
         <div class="profile-pic-wrap">
-          <img src="images/oli.png" alt="Olivier Nguyen" class="profile-pic" />
+          <img src="images/oli.png" alt="Olivier Nguyen" class="profile-pic" id="profile-pic" />
         </div>
 
         <div class="name">Olivier Nguyen</div>
@@ -185,6 +189,42 @@
       const next = current === 'light' ? 'dark' : 'light';
       document.body.setAttribute('data-theme', next === 'dark' ? '' : next);
       localStorage.setItem('theme', next === 'dark' ? '' : next);
+    });
+
+    // Easter egg: Claude Code "Thinking..." animation
+    const profilePic = document.getElementById('profile-pic');
+    const thinking = document.getElementById('thinking');
+    const thinkingText = thinking.querySelector('.thinking-text');
+    let thinkingTimeout = null;
+
+    const thinkingMessages = [
+      'Thinking',
+      'Reasoning',
+      'Analyzing',
+      'Learning',
+      'Tinkering',
+      'Exploring',
+      'Reflecting',
+      'Pondering',
+      'Evaluating',
+      'Experimenting',
+      'Cycling',
+      'Hiking',
+      'Camping',
+      'Travelling'
+    ];
+
+    profilePic.addEventListener('click', () => {
+      if (thinkingTimeout) {
+        clearTimeout(thinkingTimeout);
+        thinkingTimeout = null;
+      }
+      thinkingText.textContent = thinkingMessages[Math.floor(Math.random() * thinkingMessages.length)];
+      thinking.classList.add('active');
+      thinkingTimeout = setTimeout(() => {
+        thinking.classList.remove('active');
+        thinkingTimeout = null;
+      }, 3000);
     });
   </script>
 
