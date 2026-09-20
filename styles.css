@@ -47,6 +47,7 @@ main {
 /* LEFT COLUMN */
 .profile {
   flex: 0 0 260px;
+  position: relative;
 }
 
 .profile-pic-wrap {
@@ -131,6 +132,15 @@ main {
 
 .section {
   margin-bottom: 32px;
+}
+
+/* trailing margins would push the column's visible content off-centre */
+.content .section:last-child {
+  margin-bottom: 0;
+}
+
+.content .section:last-child .item-list li:last-child {
+  margin-bottom: 0;
 }
 
 .section-title {
@@ -393,6 +403,10 @@ main {
     flex: none;
   }
 
+  .thinking-indicator {
+    position: static;
+  }
+
   .project-card {
     flex-direction: column;
     align-items: flex-start;
@@ -452,6 +466,11 @@ main {
 
 /* Claude Code "Thinking..." Easter Egg */
 .thinking-indicator {
+  /* taken out of flow so its reserved space doesn't offset the column's
+     vertical centring; it still sits 12px above the profile picture */
+  position: absolute;
+  top: -32px;
+  left: 0;
   display: flex;
   align-items: center;
   gap: 8px;
