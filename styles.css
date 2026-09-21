@@ -165,11 +165,13 @@ main {
 
 .work-list {
   position: relative;
-  padding-left: 16px;
-  border-left: 1px solid rgba(154, 154, 154, 0.2);
+  padding: 4px 0 4px 16px;
 }
 
+/* rows are padded rather than margined so hover never falls into a gap */
 .work-list li {
+  margin: 0;
+  padding: 4px 0;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -177,22 +179,111 @@ main {
   position: relative;
 }
 
+/* rail: drawn per row so it starts and ends on a dot instead of overshooting */
+.work-list li::after {
+  content: '';
+  position: absolute;
+  left: -17px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(154, 154, 154, 0.25);
+}
+
+.work-list li:first-child::after {
+  top: 50%;
+}
+
+.work-list li:last-child::after {
+  bottom: 50%;
+}
+
+/* lit part of the rail: one continuous line, sized by --lit-top/--lit-h (set in index.html) */
+.work-list::after {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: var(--lit-top, 0px);
+  width: 1px;
+  height: var(--lit-h, 0px);
+  background: color-mix(in srgb, var(--fg) 70%, transparent);
+  pointer-events: none;
+  transition: height 0.25s ease;
+}
+
+/* dots avoid transforms so they never shift by a subpixel mid-transition */
 .work-list li::before {
   content: '';
   position: absolute;
-  left: calc(-16px - 4.5px);
-  top: 50%;
-  transform: translateY(-50%);
+  z-index: 1;
+  left: -20px;
+  top: calc(50% - 3.5px);
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: var(--bg);
-  border: 1px solid rgba(154, 154, 154, 0.4);
+  border: 1px solid rgba(154, 154, 154, 0.5);
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* past roles get a smaller dot so they never outsize the current one */
+.work-list li:not(:first-child)::before {
+  left: -19.5px;
+  top: calc(50% - 3px);
+  width: 6px;
+  height: 6px;
+}
+
+.work-list li > span {
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+
+@media (hover: hover) {
+  .work-list li:hover::before {
+    background: var(--fg);
+    border-color: var(--fg);
+  }
+
+  /* grows to 7px via spread, still no bigger than the current dot */
+  .work-list li:not(:first-child):hover::before {
+    box-shadow: 0 0 0 0.5px var(--fg);
+  }
+
+  /* passed dots get a bright outline */
+  .work-list li:has(~ li:hover)::before {
+    border-color: var(--fg);
+  }
+
+  .work-list li:hover .work-year {
+    color: var(--fg);
+    opacity: 1;
+  }
+
+  .work-list:has(li:hover) li:not(:hover) > span {
+    opacity: 0.55;
+  }
 }
 
 .work-list li:first-child::before {
-  background: var(--muted);
-  border-color: var(--muted);
+  background: var(--fg);
+  border-color: var(--fg);
+  animation: dot-glow 3.5s ease-in-out infinite;
+}
+
+@keyframes dot-glow {
+  0%, 100% {
+    box-shadow: 0 0 4px 0 color-mix(in srgb, var(--fg) 35%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 7px 1px color-mix(in srgb, var(--fg) 55%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-list li:first-child::before {
+    animation: none;
+    box-shadow: 0 0 5px 0 color-mix(in srgb, var(--fg) 45%, transparent);
+  }
 }
 
 /* Horizontal Timeline */
@@ -379,6 +470,20 @@ main {
 .project-item-content {
   flex: 1;
   min-width: 0;
+}
+
+.fun-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 20px;
+}
+
+.project-favicon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  border-radius: 3px;
+  vertical-align: -2px;
 }
 
 .project-year {

@@ -110,6 +110,15 @@
         </div>
 
         <div class="section">
+          <div class="section-title">For Fun</div>
+          <ul class="item-list fun-list">
+            <li><a class="article-link" href="https://olinguyen.com/tour-du-bay/" target="_blank" rel="noopener noreferrer"><img class="project-favicon" src="images/tour-du-bay.svg" alt="" width="16" height="16">Tour du Bay</a></li>
+            <li><a class="article-link" href="https://olinguyen.com/kindkeys/" target="_blank" rel="noopener noreferrer"><img class="project-favicon" src="images/kindkeys.svg" alt="" width="16" height="16">KindKeys</a></li>
+            <li><a class="article-link" href="https://lefun.fun/en/g/matchem" target="_blank" rel="noopener noreferrer"><img class="project-favicon" src="images/lefun.png" alt="" width="16" height="16">Match 'Em!</a></li>
+          </ul>
+        </div>
+
+        <div class="section">
           <div class="section-title">Projects</div>
           <ul class="item-list">
             <li class="project-item">
@@ -175,6 +184,24 @@
       document.body.setAttribute('data-theme', next === 'dark' ? '' : next);
       localStorage.setItem('theme', next === 'dark' ? '' : next);
     });
+
+    // Work rail: light the line from the current role down to the hovered one
+    const workList = document.querySelector('.work-list');
+    const workRows = workList.querySelectorAll('li');
+    const rowCentre = (li) => li.offsetTop + li.offsetHeight / 2;
+
+    if (window.matchMedia('(hover: hover)').matches) {
+      workRows.forEach((li) => {
+        li.addEventListener('mouseenter', () => {
+          const top = rowCentre(workRows[0]);
+          workList.style.setProperty('--lit-top', `${top}px`);
+          workList.style.setProperty('--lit-h', `${rowCentre(li) - top}px`);
+        });
+      });
+      workList.addEventListener('mouseleave', () => {
+        workList.style.setProperty('--lit-h', '0px');
+      });
+    }
 
     // Easter egg: Claude Code "Thinking..." animation
     const profilePic = document.getElementById('profile-pic');
